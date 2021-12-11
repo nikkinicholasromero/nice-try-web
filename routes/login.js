@@ -1,17 +1,23 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'nice_try'
+});
 
-/* GET login page. */
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Nice Try' });
+  res.render('login');
 });
 
 router.post('/', function(req, res, next) {
-  if ('username' === req.body.username && 'password' === req.body.password){
-      req.session.user = {name: req.body.username};
-      res.redirect('/');
+  if ('nikkinicholas.romero@gmail.com' === req.body.username && 'password' === req.body.password) {
+    var otp = "123456";
+    res.render('otp', { username: req.body.username });
   } else {
-    res.render('login', { title: 'Nice Try', message: "Invalid credentials!"});
+    res.render('login', { message: "Invalid credentials!"});
   }
 });
 

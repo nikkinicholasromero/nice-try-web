@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   req.session.user = undefined;
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 module.exports = router;
