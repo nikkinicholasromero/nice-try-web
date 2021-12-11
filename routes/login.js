@@ -32,7 +32,7 @@ router.post('/', function(req, res, next) {
       });
       
     } else {
-      res.render('login', { message: "Invalid credentials!"});
+      res.render('login', { message: "Username and password did not match"});
     }
   });
 });

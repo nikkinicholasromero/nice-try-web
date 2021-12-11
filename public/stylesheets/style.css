@@ -73,17 +73,19 @@ footer {
 }
 
 .login-form .body {
-	padding: 40px 0px 5px 0px;
-	border-bottom: 1px solid #4caf50;
+	padding: 20px 0px 5px 0px;
 }
 
 .login-form .body input {
 	width: 100%;
 	background: rgba(0,0,0,0);
-	border: none;
 	outline: none;
 	color: white;
-	padding: 8px;
+	border: none;
+  padding: 0px 5px 0px 5px;
+  border-bottom: 1px solid #4caf50;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 .login-form .footer button {
@@ -94,4 +96,8 @@ footer {
 	padding: 4px;
 	color: white;
 	cursor: pointer;
+}
+
+.error-message {
+  color: orange;
 }
