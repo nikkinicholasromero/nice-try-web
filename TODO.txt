@@ -1,5 +1,4 @@
 (Required)
-- Generate and save OTP on successful username/password authentication
 - Send OTP email
 - Verify username/otp against DB
 - Design pages
@@ -9,3 +8,7 @@
 - Expose user registration endpoint
 - Expose username/password authentication endpoint
 - Expose username/otp authentication endpoint
+
+(Enhancements)
+- Check that the username is a valid email address
+- Encrypt password in the database

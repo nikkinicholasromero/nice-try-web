@@ -18,9 +18,19 @@ router.post('/', function(req, res, next) {
 
   connection.query(query, function (err, rows, fields) {
     if (err) throw err;
-    
+
     if (rows.length > 0) {
-      res.render('otp', { username: req.body.username });
+      var otp = (Math.floor(Math.random() * 1000000) + "").padStart(6, "0");
+      var update = `UPDATE USER_INFORMATION set OTP = "${otp}" WHERE USERNAME = "${req.body.username}"`;
+
+      connection.query(update, function (err, rows, fields) {
+        if (err) throw err;
+
+        // Send email with OTP
+        console.log("Generated OTP is : " + otp);
+        res.render('otp', { username: req.body.username });
+      });
+      
     } else {
       res.render('login', { message: "Invalid credentials!"});
     }
