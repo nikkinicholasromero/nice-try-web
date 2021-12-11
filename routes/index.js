@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var testFolder = 'C:\\Users\\nikki\\Desktop\\files';
+var sourceFolder = 'C:\\Users\\nikki\\Desktop\\files';
 var zip = require('zip-a-folder');
 
 router.get('/', function(req, res, next) {
@@ -12,11 +12,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  var targetFolder = `${testFolder}\\${req.session.user.name}`;
+  var targetFolder = `${sourceFolder}\\${req.session.user.name}`;
   var targetDestination = `${targetFolder}.zip`;
-
-  console.log(targetFolder);
-  console.log(targetDestination);
 
   zip.zip(targetFolder, targetDestination).then(() => {
     res.download(targetDestination);
