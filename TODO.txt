@@ -1,0 +1,8 @@
+(Required)
+- Verify username/password against DB
+- Design pages
+- Add download backup functionality
+
+(Optional)
+- Expose username/password authentication endpoint
+- Expose user registration endpoint
