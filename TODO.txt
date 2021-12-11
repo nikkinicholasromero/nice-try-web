@@ -1,5 +1,4 @@
 (Required)
-- Verify username/password against DB
 - Generate and save OTP on successful username/password authentication
 - Send OTP email
 - Verify username/otp against DB

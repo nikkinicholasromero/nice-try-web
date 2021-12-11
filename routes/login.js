@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
+
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -13,12 +14,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  if ('nikkinicholas.romero@gmail.com' === req.body.username && 'password' === req.body.password) {
-    var otp = "123456";
-    res.render('otp', { username: req.body.username });
-  } else {
-    res.render('login', { message: "Invalid credentials!"});
-  }
+  var query = `SELECT * FROM USER_INFORMATION WHERE USERNAME = "${req.body.username}" AND PASSWORD = "${req.body.password}"`;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) throw err;
+    
+    if (rows.length > 0) {
+      res.render('otp', { username: req.body.username });
+    } else {
+      res.render('login', { message: "Invalid credentials!"});
+    }
+  });
 });
 
 module.exports = router;
