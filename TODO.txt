@@ -1,5 +1,4 @@
 (Required)
-- Add download backup functionality
 - Send OTP email
 
 (Optional)
