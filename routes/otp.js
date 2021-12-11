@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
             req.session.user = {name: req.body.username};
             res.redirect('/');
         } else {
-            res.render('otp', { username: req.body.username, message: "Invalid OTP!" });
+            res.render('otp', { username: req.body.username, message: "OTP Incorrect" });
         }
     });
 });

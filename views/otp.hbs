@@ -1,7 +1,15 @@
-<p>An OTP was sent to {{username}}</p>
-<p>{{message}}</p>
 <form action="/otp" method="post">
-    <input type="hidden" name="username" value="{{username}}"/>
-    OTP : <input type="text" name="otp"/>
-    <button type="submit">Ok</button>
+    <div class="login-form center">
+        <div class="header">
+            <h1>Nice Try | OTP</h1>
+        </div>
+        <div class="body">
+            <p class="error-message">{{message}}</p>
+            <input type="hidden" name="username" value="{{username}}"/>
+            <input type="text" name="otp" placeholder="Type your OTP">
+        </div>
+        <div class="footer">
+            <button type="submit">Ok</button>
+        </div>
+    </div>
 </form>
