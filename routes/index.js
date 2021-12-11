@@ -12,8 +12,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  zip.zip(testFolder + "\\" + req.session.user.name, testFolder + "\\" + req.session.user.name + ".zip").then(() => {
-    res.download(testFolder + "\\" + req.session.user.name + ".zip");
+  var targetFolder = `${testFolder}\\${req.session.user.name}`;
+  var targetDestination = `${targetFolder}.zip`;
+
+  console.log(targetFolder);
+  console.log(targetDestination);
+
+  zip.zip(targetFolder, targetDestination).then(() => {
+    res.download(targetDestination);
   });
 });
 
