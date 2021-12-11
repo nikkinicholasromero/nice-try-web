@@ -1,5 +1,4 @@
 (Required)
-- Design login form
 - Design OTP
 - Add download backup functionality
 - Send OTP email
