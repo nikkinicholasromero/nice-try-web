@@ -5,6 +5,7 @@
 - Expose user registration endpoint
 - Expose username/password authentication endpoint
 - Expose username/otp authentication endpoint
+- Expose file upload endpoint
 
 (Enhancements)
 - Check that the username is a valid email address
