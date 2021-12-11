@@ -2,7 +2,6 @@
 - Decrypt files before zipping
 
 (Required [REST])
-- Expose username/otp authentication endpoint
 - Expose file upload endpoint
 
 (Enhancements)

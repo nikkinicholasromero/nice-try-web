@@ -76,10 +76,18 @@ router.post('/authenticate', function(req, res, next) {
   });
 });
 
-router.all('/otp/verify', function(req, res, next) {
-  // TODO
-  // Check if OTP is correct
-  res.json({status: "OTP verification is not yet supported"});
+router.post('/otp/verify', function(req, res, next) {
+  var query = `SELECT * FROM USER_INFORMATION WHERE USERNAME = "${req.body.username}" AND OTP = "${req.body.otp}"`;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) throw err;
+
+    if (rows.length > 0) {
+      res.json({status: "SUCCESS", message: "OTP verification is successful. "});
+    } else {
+      res.json({status: "FAILED", message: "OTP is invalid. "});
+    }
+  });
 });
 
 module.exports = router;
