@@ -1,7 +1,8 @@
 (Required)
-- Send OTP email
-- Design pages
+- Design login form
+- Design OTP
 - Add download backup functionality
+- Send OTP email
 
 (Optional)
 - Expose user registration endpoint
@@ -11,3 +12,7 @@
 (Enhancements)
 - Check that the username is a valid email address
 - Encrypt password in the database
+- Username/password retry limit
+- Username/otp retry limit
+- OTP clear on successful login
+- OTP expiration

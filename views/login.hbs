@@ -1,7 +1,15 @@
-<p>Please login to proceed</p>
-<p>{{message}}</p>
 <form action="/login" method="post">
-    <input type="text" name="username"/>
-    <input type="password" name="password"/>
-    <button type="submit">Login</button>
+    <div class="login-form center">
+        <div class="header">
+            <h1>Decryption Password</h1>
+        </div>
+        <div class="body">
+            <p>{{message}}</p>
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="password" name="password" placeholder="Password"/>
+        </div>
+        <div class="footer">
+            <button type="submit">Login</button>
+        </div>
+    </div>
 </form>

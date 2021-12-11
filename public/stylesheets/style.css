@@ -1,8 +1,97 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	margin: 0;
+	background-color: #2d3436;
+	font-family: sans-serif;
 }
 
-a {
-  color: #00B7FF;
+button {
+	border-radius: 5px
+}
+
+header {
+	font-size: 15px;
+	font-weight: bold;
+	font-style: none;
+	padding: 10px;
+}
+
+#logout {
+/*	background-color: #4caf50;
+	width: 70px;
+	border: none;
+	outline: none;
+	color: white;
+	padding: 8px;
+	cursor: pointer;
+	float: right;*/
+
+	float: right;
+	width: 70px;
+	background: rgba(0,0,0,0);
+	border: 1px solid #4caf50;
+	padding: 4px;
+	color: white;
+	cursor: pointer;
+}
+
+div.container button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 20px 0;
+	font-size: 1.7rem;
+	width: 280px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	color: white;
+	font-size: 12px;
+	text-align: center;
+	padding: 20px 0;
+}
+
+.center {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 280px;
+	text-align: center;
+}
+
+.login-form .header {
+	text-transform: uppercase;
+	color: white;
+	border-bottom: 6px solid #4caf50;
+}
+
+.login-form .body {
+	padding: 40px 0px 5px 0px;
+	border-bottom: 1px solid #4caf50;
+}
+
+.login-form .body input {
+	width: 100%;
+	background: rgba(0,0,0,0);
+	border: none;
+	outline: none;
+	color: white;
+	padding: 8px;
+}
+
+.login-form .footer button {
+	width: 100%;
+	margin: 20px 0 10px 0;
+	background: rgba(0,0,0,0);
+	border: 1px solid #4caf50;
+	padding: 4px;
+	color: white;
+	cursor: pointer;
 }
