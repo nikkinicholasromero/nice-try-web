@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
       connection.query(update, function (err, rows, fields) {
         if (err) throw err;
 
-        // Send email with OTP
+        // TODO : Send email with OTP
         console.log("Generated OTP is : " + otp);
         res.render('otp', { username: req.body.username });
       });

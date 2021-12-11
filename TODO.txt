@@ -1,6 +1,5 @@
 (Required)
 - Send OTP email
-- Verify username/otp against DB
 - Design pages
 - Add download backup functionality
 
