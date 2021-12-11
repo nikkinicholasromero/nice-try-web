@@ -1,4 +1,4 @@
-(Required (Web))
+(Required [Web])
 - Send OTP email
 - Decrypt files before zipping
 
