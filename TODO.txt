@@ -1,7 +1,8 @@
-(Required)
+(Required (Web))
 - Send OTP email
+- Decrypt files before zipping
 
-(Optional)
+(Required [REST])
 - Expose user registration endpoint
 - Expose username/password authentication endpoint
 - Expose username/otp authentication endpoint
