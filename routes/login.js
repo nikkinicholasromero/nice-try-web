@@ -52,7 +52,6 @@ router.post('/', function(req, res, next) {
         
         res.render('otp', { username: req.body.username });
       });
-      
     } else {
       res.render('login', { message: "Username and password did not match"});
     }

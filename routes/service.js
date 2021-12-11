@@ -3,12 +3,21 @@ var router = express.Router();
 var mysql = require('mysql');
 var fs = require('fs');
 var sourceFolder = 'C:\\Users\\nikki\\Desktop\\files\\';
+var nodemailer = require('nodemailer');
 
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'root',
   database: 'nice_try'
+});
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: '{{EMAIL_ADDRESS}}',
+    pass: '{{EMAIL_PASSWORD}}'
+  }
 });
 
 router.post('/register', function(req, res, next) {
@@ -31,11 +40,40 @@ router.post('/register', function(req, res, next) {
   });
 });
 
-router.all('/authenticate', function(req, res, next) {
-  // TODO
-  // Return error if username and password does not match in DB
-  // Generate, save, and send OTP
-  res.json({status: "Authenticate is not yet supported"});
+router.post('/authenticate', function(req, res, next) {
+  var query = `SELECT * FROM USER_INFORMATION WHERE USERNAME = "${req.body.username}" AND PASSWORD = "${req.body.password}"`;
+
+  connection.query(query, function (err, rows, fields) {
+    if (err) throw err;
+
+    if (rows.length > 0) {
+      var otp = (Math.floor(Math.random() * 1000000) + "").padStart(6, "0");
+      var update = `UPDATE USER_INFORMATION set OTP = "${otp}" WHERE USERNAME = "${req.body.username}"`;
+
+      connection.query(update, function (err, rows, fields) {
+        if (err) throw err;
+
+        var mailOptions = {
+          from: '{{EMAIL_ADDRESS}}',
+          to: req.body.username,
+          subject: 'Nice Try OTP',
+          text: `Your OTP is ${otp}`
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
+        
+        res.json({status: "SUCCESS", message: "OTP sent to your email. "});
+      });
+    } else {
+      res.json({status: "FAILED", message: "Username and password did not match. "});
+    }
+  });
 });
 
 router.all('/otp/verify', function(req, res, next) {
