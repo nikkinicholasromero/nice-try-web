@@ -3,6 +3,16 @@ var router = express.Router();
 var mysql = require('mysql');
 var fs = require('fs');
 var sourceFolder = 'C:\\Users\\nikki\\Desktop\\files\\';
+var multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, `${sourceFolder}${req.params.username}`);
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+const upload = multer({ storage: storage })
 
 var connection = mysql.createConnection({
   host: 'localhost',
@@ -44,8 +54,8 @@ router.post('/authenticate', function(req, res, next) {
   });
 });
 
-router.post('/upload', function(req, res, next) {
-  // TODO
+router.post('/upload/:username', upload.single("file"), function(req, res, next) {
+  res.json({status: "SUCCESS", message: "File uploaded. "});
 });
 
 module.exports = router;
