@@ -4,6 +4,6 @@ cd nice-try-web
 
 npm install
 
-SET DEBUG=nice-try-web:* & npm start
+npm start
 
 open http://localhost:3000/ using any browser

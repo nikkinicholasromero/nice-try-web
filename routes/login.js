@@ -13,8 +13,8 @@ var connection = mysql.createConnection({
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: '{{EMAIL_ADDRESS}}',
-    pass: '{{EMAIL_PASSWORD}}'
+    user: 'nicetry.ccc@gmail.com',
+    pass: 'Password123$'
   }
 });
 
@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
         if (err) throw err;
 
         var mailOptions = {
-          from: '{{EMAIL_ADDRESS}}',
+          from: 'nicetry.ccc@gmail.com',
           to: req.body.username,
           subject: 'Nice Try OTP',
           text: `Your OTP is ${otp}`
