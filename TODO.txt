@@ -1,9 +1,6 @@
 (Required [Web])
 - Decrypt files before zipping
 
-(Required [REST])
-- Expose file upload endpoint
-
 (Enhancements)
 - Check that the username is a valid email address
 - Encrypt password in the database
