@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 var fs = require('fs');
-var sourceFolder = 'C:\\Users\\nikki\\Desktop\\files\\';
+var sourceFolder = 'C:\\files\\';
 var multer = require('multer');
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
