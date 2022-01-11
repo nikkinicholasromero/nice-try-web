@@ -27,14 +27,14 @@ router.post('/register', function(req, res, next) {
     if (err) throw err;
 
     if (rows.length > 0) {
-      res.json({status: "FAILED", message: "Username already taken. "});
+      res.status(409).json({status: "FAILED", message: "Username already taken. "});
     } else {
       var insert = `INSERT INTO USER_INFORMATION (USERNAME, PASSWORD) VALUES ("${req.body.username}", "${req.body.password}")`;
       connection.query(insert, function (err, rows, fields) {
         if (err) throw err;
         
         fs.mkdirSync(`${sourceFolder}${req.body.username}`, { recursive: true });
-        res.json({status: "SUCCESS", message: "Registration successful. "});
+        res.status(201).json({status: "SUCCESS", message: "Registration successful. "});
       });
     }
   });
@@ -47,9 +47,9 @@ router.post('/authenticate', function(req, res, next) {
     if (err) throw err;
 
     if (rows.length > 0) {
-        res.json({status: "SUCCESS", message: "Login successful. "});
+        res.status(200).json({status: "SUCCESS", message: "Login successful. "});
     } else {
-      res.json({status: "FAILED", message: "Username and password did not match. "});
+      res.status(401).json({status: "FAILED", message: "Username and password did not match. "});
     }
   });
 });
